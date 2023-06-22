@@ -13,12 +13,14 @@ let data:Resturant = {
     {
       name:'rose pasta',
       price:2000,
-      category:'pasta'
+      category:'pasta',
+      id:1
     },
     {
       name:'garlic steak',
       price:3000,
-      category:'steak'
+      category:'steak',
+      id:2
     }
   ]
 }
