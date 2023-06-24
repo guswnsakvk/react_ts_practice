@@ -16,4 +16,5 @@ export type Menu = {
   price:number;
   category:string;
   id:number;
+  like:number
 }

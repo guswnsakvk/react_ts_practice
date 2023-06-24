@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, configureStore, createSlice } from '@reduxjs/toolkit'
 import { Resturant } from './model/resturant'
 
 let data:Resturant = {
@@ -14,13 +14,15 @@ let data:Resturant = {
       name:'rose pasta',
       price:2000,
       category:'pasta',
-      id:1
+      id:1,
+      like:100
     },
     {
       name:'garlic steak',
       price:3000,
       category:'steak',
-      id:2
+      id:2,
+      like:200
     }
   ]
 }
@@ -29,9 +31,14 @@ let ResturantData = createSlice({
   name: 'ResturantData',
   initialState: data,
   reducers: {
-
+    addLike(state, action: PayloadAction<number>){
+      console.log(state.menu[action.payload-1].like)
+      state.menu[action.payload-1].like += 1
+    }
   }
 })
+
+export let {addLike} = ResturantData.actions
 
 let test = createSlice({
   name : 'test',
@@ -44,7 +51,7 @@ let test = createSlice({
 export const store = configureStore({
   reducer: {
     ResturantData : ResturantData.reducer,
-    test : test.reducer
+    test : test.reducer,
   }
 })
 
